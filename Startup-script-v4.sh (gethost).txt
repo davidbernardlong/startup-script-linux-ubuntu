@@ -1,0 +1,15 @@
+#!/bin/bash
+apt-get update -y
+apt-get install apache2 -y
+apt-get install php -y
+mv /var/www/html/index.html /var/www/html/index.php
+cat <<EOF > /var/www/html/index.php
+<html>
+<body>Welcome to my global website! <br>The Server you are seeing is named:</br>
+
+<?php
+echo gethostname();
+?>
+</body>
+</html>
+EOF
